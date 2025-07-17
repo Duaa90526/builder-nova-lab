@@ -268,8 +268,11 @@ export function FormSection() {
                 </Select>
               </div>
 
-              <Button className="w-full bg-primary text-white hover:bg-primary/90 h-12 text-lg font-semibold rounded-lg">
-                Generate Cover Letter
+              <Button
+                className="w-full bg-primary text-white hover:bg-primary/90 h-12 text-lg font-semibold rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={!Object.values(generationOptions).some(Boolean)}
+              >
+                Generate Selected Content
               </Button>
             </CardContent>
           </Card>
