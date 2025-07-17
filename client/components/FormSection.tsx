@@ -131,6 +131,84 @@ export function FormSection() {
               </div>
 
               <div className="space-y-2">
+                <Label htmlFor="jobDescription" className="text-sm font-medium">
+                  Job Description
+                </Label>
+                <Textarea
+                  id="jobDescription"
+                  placeholder="Paste the job description here..."
+                  className="min-h-[140px] border-input focus:border-primary resize-none"
+                />
+              </div>
+
+              <div className="space-y-4">
+                <Label className="text-sm font-medium">
+                  What would you like to generate?
+                </Label>
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-2">
+                    <Checkbox
+                      id="coverLetter"
+                      checked={generationOptions.coverLetter}
+                      onCheckedChange={(checked) =>
+                        setGenerationOptions((prev) => ({
+                          ...prev,
+                          coverLetter: checked as boolean,
+                        }))
+                      }
+                    />
+                    <Label
+                      htmlFor="coverLetter"
+                      className="text-sm font-normal cursor-pointer"
+                    >
+                      Cover Letter
+                    </Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Checkbox
+                      id="email"
+                      checked={generationOptions.email}
+                      onCheckedChange={(checked) =>
+                        setGenerationOptions((prev) => ({
+                          ...prev,
+                          email: checked as boolean,
+                        }))
+                      }
+                    />
+                    <Label
+                      htmlFor="email"
+                      className="text-sm font-normal cursor-pointer"
+                    >
+                      Professional Email
+                    </Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Checkbox
+                      id="followUp"
+                      checked={generationOptions.followUp}
+                      onCheckedChange={(checked) =>
+                        setGenerationOptions((prev) => ({
+                          ...prev,
+                          followUp: checked as boolean,
+                        }))
+                      }
+                    />
+                    <Label
+                      htmlFor="followUp"
+                      className="text-sm font-normal cursor-pointer"
+                    >
+                      Follow-up Email
+                    </Label>
+                  </div>
+                </div>
+                {!Object.values(generationOptions).some(Boolean) && (
+                  <p className="text-sm text-destructive">
+                    Please select at least one option to generate
+                  </p>
+                )}
+              </div>
+
+              <div className="space-y-2">
                 <Label className="text-sm font-medium">Resume Upload</Label>
                 <div
                   className={`border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors ${
