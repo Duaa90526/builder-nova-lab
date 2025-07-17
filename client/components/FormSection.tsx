@@ -17,6 +17,11 @@ import { Upload, FileText } from "lucide-react";
 export function FormSection() {
   const [dragActive, setDragActive] = useState(false);
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+  const [generationOptions, setGenerationOptions] = useState({
+    coverLetter: true,
+    email: false,
+    followUp: false,
+  });
 
   const handleDrag = (e: React.DragEvent) => {
     e.preventDefault();
